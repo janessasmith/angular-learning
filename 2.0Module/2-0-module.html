@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>模块</title>
+    <script src="https://cdn.bootcss.com/angular.js/1.6.4/angular.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular.js/1.6.4/angular-animate.min.js"></script>
+</head>
+<body ng-controller="moduleCtrl">
+    <input type="text" ng-model="nameText" placeholder="请输入过滤信息">
+    <ul>
+        <li ng-repeat="info in names|filter:nameText">{{$index+1}}、今年{{info.name}}已经{{info.age}}岁了！ {{$first}}-{{$middle}}-{{$last}}-{{$even}}-{{$odd}}</li>
+    </ul>
+    <script type="text/javascript">
+        angular.module('appModule', ['ngAnimate']).controller('moduleCtrl', ['$scope', function($scope){
+            $scope.names = [
+                {name: 'janessasmith', age: '25'},
+                {name: 'hazel', age: '20'},
+                {name: 'zhenglu', age: '18'}
+            ];
+        }]);
+    </script>
+</body>
+</html>
