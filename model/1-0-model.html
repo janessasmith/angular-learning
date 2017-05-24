@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="myAppModule">
+<head>
+    <meta charset="UTF-8">
+    <title>双向数据绑定</title>
+    <script src="https://cdn.bootcss.com/angular.js/1.2.9/angular.min.js"></script>
+</head>
+<body ng-controller="myAppCtrl">
+    姓名：
+    <input type="text" ng-model="item.name">
+    <br /> 性别：
+    <input type="radio" name="item.sex" value="女" ng-model="item.sex">女
+    <input type="radio" name="item.sex" value="男" ng-model="item.sex">男
+    <br /> 兴趣：
+    <input type="checkbox" name="item.interest" ng-model="item.interest1" ng-true-value="音乐" ng-false-value="无选中兴趣1">音乐
+    <input type="checkbox" name="item.interest" ng-model="item.interest2" ng-true-value="电影" ng-false-value="无选中兴趣2">电影
+    <input type="checkbox" name="item.interest" ng-model="item.interest3" ng-true-value="旅游" ng-false-value="无选中兴趣3">旅游
+    <br />
+    <fieldset>
+        <legend>{{item.name}}的基本信息如下：</legend>
+        <br /> 性别：{{item.sex}}
+        <br /> 兴趣爱好：{{item.interest1}} {{item.interest2}} {{item.interest3}}
+    </fieldset>
+    <script type="text/javascript">
+        angular.module('myAppModule', []).controller('myAppCtrl', ['$scope', function($scope) {
+
+        }]);
+    </script>
+</body>
+</html>
